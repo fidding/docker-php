@@ -45,9 +45,23 @@ docker build -t fidding/php-fpm php/.
 
 #### 启动compose
 ```shell
-&& docker-compose up -d
+docker-compose up -d
 ```
 
+#### demo
+1. 复制配置文件
+    ```shell
+    cp demo/demo.conf ~/docker-data/nginx/demo.conf
+    cp -rf demo/www/demo ~/docker-data/www
+    ```
+2. 配置本地host
+    ```shell
+    127.0.0.1   docker-php-demo.com
+    ```
+3. 打开浏览器访问地址
+
+    [docker-php-demo.com](http://docker-php-demo.com)
+    
 ### compose操作 
 
 1. 进入docker-php项目
