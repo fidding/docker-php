@@ -1,0 +1,36 @@
+version: '3.4'
+services:
+  fidding-mysql:
+    image: mariadb
+    ports:
+      - 3306:3306
+    environment:
+       MYSQL_ROOT_PASSWORD: hongjiahuang
+    volumes:
+      - $HOME/docker-php/mysql/data:/var/lib/mysql # mysql数据目录
+#    restart: always
+  fidding-php:
+    image: fidding/php-fpm
+    links:
+      - fidding-mysql:mysql
+    depends_on:
+      - fidding-mysql
+    ports:
+      - 9000:9000
+    volumes:
+      - $HOME/docker-php/www:/docker-php/www # php代码目录
+      - $HOME/docker-php/php/conf.d:/usr/local/etc/php/conf.d # php扩展配置目录
+#    restart: always
+  fidding-nginx:
+    image: nginx
+    ports:
+      - 80:80
+    volumes:
+      - $HOME/docker-php/www:/docker-php/www # 项目目录
+      - $HOME/docker-php/nginx/conf.d:/etc/nginx/conf.d # nginx配置文件目录
+      - $HOME/docker-php/nginx/log:/var/log/nginx # nginx日志目录
+    depends_on:
+      - fidding-php
+    links:
+      - fidding-php:php-fpm
+#    restart: always

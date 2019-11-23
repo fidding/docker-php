@@ -1,0 +1,7 @@
+.idea
+.vscode
+mysql/data
+nginx/conf.d
+nginx/log
+www
+
