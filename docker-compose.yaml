@@ -2,6 +2,7 @@ version: '3.4'
 services:
   fidding-mysql:
     image: mariadb
+    container_name: fidding-mysql
     ports:
       - 3306:3306
     environment:
@@ -10,7 +11,8 @@ services:
       - $HOME/docker-data/mysql/data:/var/lib/mysql # mysql数据目录
     restart: always
   fidding-php:
-    image: fidding/php-fpm
+    image: fidding-php
+    container_name: fidding-php
     links:
       - fidding-mysql:mysql
     depends_on:
@@ -23,6 +25,7 @@ services:
     restart: always
   fidding-nginx:
     image: nginx
+    container_name: fidding-nginx
     ports:
       - 80:80
     volumes:

@@ -1,7 +1,44 @@
 
 # docker-php
-> 快捷构建php docker化
+> 快捷构建docker化nginx+mysql+php环境
 
+
+### 构建与启动
+#### 下载
+```shell
+# 下载镜像并进入目录
+git clone https://github.com/fidding/docker-php.git ~/docker-php && cd ~/docker-php
+```
+#### 构建镜像
+```shell
+# php
+docker rmi fidding-php
+docker build -t fidding-php php/.
+```
+
+#### 启动compose
+```shell
+docker-compose up -d
+```
+
+#### demo演示
+1. 复制配置文件
+    ```shell
+    cp demo/demo.conf ~/docker-data/nginx/conf.d && cp -rf demo/www/demo ~/docker-data/www
+    ```
+2. 重启
+    ```shell
+    docker-compose restart
+    ```
+3. 配置本地host
+    ```shell
+    127.0.0.1   docker-php-demo.com
+    ```
+4. 打开浏览器访问地址
+
+    [docker-php-demo.com](http://docker-php-demo.com)
+    
+   
 ### 目录
 #### 项目目录
 ```shell
@@ -16,6 +53,7 @@
 ├── docker-compose.yaml
 └── readme.md
 ```
+
 #### 数据目录
 ```shell
 ~/docker-data
@@ -29,39 +67,6 @@
 └── www 项目目录
 ```
 
-### 构建与启动
-#### 下载
-```shell
-# 下载镜像
-git clone https://github.com/fidding/docker-php.git ~/docker-php
-# 进入目录
-cd ~/docker-php
-```
-#### 构建镜像
-```shell
-# php
-docker build -t fidding/php-fpm php/.
-```
-
-#### 启动compose
-```shell
-docker-compose up -d
-```
-
-#### demo
-1. 复制配置文件
-    ```shell
-    cp demo/demo.conf ~/docker-data/nginx/demo.conf
-    cp -rf demo/www/demo ~/docker-data/www
-    ```
-2. 配置本地host
-    ```shell
-    127.0.0.1   docker-php-demo.com
-    ```
-3. 打开浏览器访问地址
-
-    [docker-php-demo.com](http://docker-php-demo.com)
-    
 ### compose操作 
 
 1. 进入docker-php项目
