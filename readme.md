@@ -28,15 +28,24 @@
 │   └── conf.d php扩展配置目录
 └── www 项目目录
 ```
-### 构建镜像
+
+### 构建与启动
+#### 下载
+```shell
+# 下载镜像
+git clone https://github.com/fidding/docker-php.git ~/docker-php
+# 进入目录
+cd ~/docker-php
+```
+#### 构建镜像
 ```shell
 # php
 docker build -t fidding/php-fpm php/.
 ```
 
-### 启动compose
+#### 启动compose
 ```shell
-docker-compose up -d
+&& docker-compose up -d
 ```
 
 ### compose操作 
