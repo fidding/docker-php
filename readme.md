@@ -1,20 +1,28 @@
 
 ### 目录
+#### 项目目录
 ```shell
-.
-├── docker-compose.yaml
+~/docker-php
 ├── mysql
-│   ├── data sql数据目录
 │   └── readme.md
 ├── nginx ng目录
-│   ├── conf.d ng配置目录
-│   ├── log ng日志目录
 │   └── readme.md
 ├── php php目录
-│   ├── conf.d php扩展配置目录
 │   ├── Dockerfile
 │   └── readme.md
-├── readme.md
+├── docker-compose.yaml
+└── readme.md
+```
+#### 数据目录
+```shell
+~/docker-data
+├── mysql
+│   └── data sql数据目录
+├── nginx ng目录
+│   ├── conf.d ng配置目录
+│   └── log ng日志目录
+├── php php目录
+│   └── conf.d php扩展配置目录
 └── www 项目目录
 ```
 ### 构建镜像

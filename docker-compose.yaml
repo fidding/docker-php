@@ -7,8 +7,8 @@ services:
     environment:
        MYSQL_ROOT_PASSWORD: hongjiahuang
     volumes:
-      - $HOME/docker-php/mysql/data:/var/lib/mysql # mysql数据目录
-#    restart: always
+      - $HOME/docker-data/mysql/data:/var/lib/mysql # mysql数据目录
+    restart: always
   fidding-php:
     image: fidding/php-fpm
     links:
@@ -18,19 +18,19 @@ services:
     ports:
       - 9000:9000
     volumes:
-      - $HOME/docker-php/www:/docker-php/www # php代码目录
-      - $HOME/docker-php/php/conf.d:/usr/local/etc/php/conf.d # php扩展配置目录
-#    restart: always
+      - $HOME/docker-data/www:/docker-data/www # php代码目录
+      - $HOME/docker-data/php/conf.d:/usr/local/etc/php/conf.d # php扩展配置目录
+    restart: always
   fidding-nginx:
     image: nginx
     ports:
       - 80:80
     volumes:
-      - $HOME/docker-php/www:/docker-php/www # 项目目录
-      - $HOME/docker-php/nginx/conf.d:/etc/nginx/conf.d # nginx配置文件目录
-      - $HOME/docker-php/nginx/log:/var/log/nginx # nginx日志目录
+      - $HOME/docker-data/www:/docker-data/www # 项目目录
+      - $HOME/docker-data/nginx/conf.d:/etc/nginx/conf.d # nginx配置文件目录
+      - $HOME/docker-data/nginx/log:/var/log/nginx # nginx日志目录
     depends_on:
       - fidding-php
     links:
       - fidding-php:php-fpm
-#    restart: always
+    restart: always
