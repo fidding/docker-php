@@ -1,4 +1,22 @@
 
+### 目录
+```shell
+.
+├── docker-compose.yaml
+├── mysql
+│   ├── data sql数据目录
+│   └── readme.md
+├── nginx ng目录
+│   ├── conf.d ng配置目录
+│   ├── log ng日志目录
+│   └── readme.md
+├── php php目录
+│   ├── conf.d php扩展配置目录
+│   ├── Dockerfile
+│   └── readme.md
+├── readme.md
+└── www 项目目录
+```
 ### 构建镜像
 ```shell
 # php
