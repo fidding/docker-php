@@ -1,4 +1,7 @@
 
+# docker-php
+> 快捷构建php docker化
+
 ### 目录
 #### 项目目录
 ```shell
@@ -37,14 +40,21 @@ docker-compose up -d
 ```
 
 ### compose操作 
-```shell
-# 查看
-docker-compose ps 
-# 查看指定镜像
-docker-compose ps <name>
 
-# 重启/启动/停止所有
-docker-compose restart/start/stop
-# 重启/启动/停止指定镜像
-docker-compose restart/start/stop <name>
-```
+1. 进入docker-php项目
+    ```shell
+    # 进入docker-php
+    cd docker-php
+    ```
+2. 执行操作
+    ```shell
+    # 查看
+    docker-compose ps 
+    # 查看指定镜像
+    docker-compose ps <name>
+    
+    # 重启/启动/停止所有
+    docker-compose restart/start/stop
+    # 重启/启动/停止指定镜像
+    docker-compose restart/start/stop <name>
+    ```
