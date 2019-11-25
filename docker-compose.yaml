@@ -24,7 +24,7 @@ services:
       - $HOME/docker-data/www:/docker-data/www # php代码目录
     restart: always
   docker-nginx:
-    image: nginx
+    image: nginx:alpine
     container_name: docker-nginx
     ports:
       - 80:80
