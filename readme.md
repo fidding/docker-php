@@ -8,17 +8,13 @@
 ```shell
 git clone https://github.com/fidding/docker-php.git ~/docker-php && cd ~/docker-php
 ```
-#### 2.构建镜像
-```shell
-docker rmi docker-php;docker build -t docker-php php/.
-```
 
-#### 3.启动
+#### 2.构建启动
 ```shell
 docker-compose up -d
 ```
 
-#### 4.demo演示
+#### 3.demo演示
 复制配置文件
 
 ```shell

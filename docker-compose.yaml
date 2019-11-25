@@ -11,7 +11,8 @@ services:
       - $HOME/docker-data/mysql/data:/var/lib/mysql # mysql数据目录
     restart: always
   docker-php:
-    image: docker-php
+    build: ./php
+#    image: docker-php
     container_name: docker-php
     links:
       - docker-mysql:docker-mysql
@@ -21,7 +22,6 @@ services:
       - 9000:9000
     volumes:
       - $HOME/docker-data/www:/docker-data/www # php代码目录
-      - $HOME/docker-data/php/conf.d:/usr/local/etc/php/conf.d # php扩展配置目录
     restart: always
   docker-nginx:
     image: nginx
