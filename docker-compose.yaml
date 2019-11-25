@@ -21,7 +21,7 @@ services:
     ports:
       - 9000:9000
     volumes:
-      - $HOME/docker-data/www:/docker-data/www # php代码目录
+      - $HOME/www:/docker-data/www # php代码目录
     restart: always
   docker-nginx:
     image: nginx:alpine
@@ -30,7 +30,7 @@ services:
       - 80:80
     volumes:
       - $HOME/docker-data/www:/docker-data/www # 项目目录
-      - $HOME/docker-data/nginx/conf.d:/etc/nginx/conf.d # nginx配置文件目录
+      - $HOME/conf.d:/etc/nginx/conf.d # nginx配置文件目录
       - $HOME/docker-data/nginx/log:/var/log/nginx # nginx日志目录
     depends_on:
       - docker-php

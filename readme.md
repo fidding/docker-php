@@ -18,7 +18,7 @@ docker-compose up -d
 复制配置文件
 
 ```shell
-cp demo/demo.conf ~/docker-data/nginx/conf.d && cp -rf demo/www/demo ~/docker-data/www
+cp demo/demo.conf ~/conf.d && cp -rf demo/www/demo ~/www
 ```
 重启nginx
 
@@ -70,19 +70,23 @@ docker-compose restart docker-php
 ```
 
 #### 2.数据目录
-个人目录, 位于`~/docker-data`, 为nginx、php、mysql配置与项目数据目录, 需注意安全性与保密性
+个人目录, 位于`~/docker-data`, `~/www`, `~/conf.d`, 为nginx、php、mysql配置与项目数据目录, 需注意安全性与保密性
 
 ```shell
 ~/docker-data
 ├── mysql mariadb环境目录
 │   └── data sql数据目录
 ├── nginx nginx环境目录
-│   ├── conf.d ng配置目录
 │   └── log ng日志目录
-├── php php环境目录
-│   └── conf.d php扩展配置目录
+└── php php环境目录
+    └── conf.d php扩展配置目录
+
+~/
+├── conf.d ng配置目录
 └── www php代码项目目录
+
 ```
+
 
 ### 基本操作
 
